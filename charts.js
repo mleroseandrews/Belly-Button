@@ -58,7 +58,7 @@ function buildMetadata(sample) {
 function buildCharts(sample) {
   // Deliverable 1: 2. Use d3.json to load the samples.json file 
   d3.json("samples.json").then((data) => {
-    console.log(data);
+    //console.log(data);
 
     // Deliverable 1: 3. Create a variable that holds the samples array. 
   var allSamples = data.samples;
@@ -106,27 +106,28 @@ function buildCharts(sample) {
 
     // Deliverable 2: 1. Create the trace for the bubble chart.
     var bubbleData = [{
-      x: otu_IDs,
-      y: values,
-      text: labels,
-      mode: 'markers',
-      marker: {
-        size: values,
-        color: otu_IDs,
-        text: hoverText
+      x : otu_IDs,
+      y : values,
+      text : labels,
+      mode : 'markers',
+      marker : {
+        size : values,
+        color : otu_IDs,
+        colorscale: 'RdBu',
       }
-    }]
+    }];
     // Deliverable 2: 2. Create the layout for the bubble chart.
-    var bubbleLayout = {
-      title: 'Bacteria Cultures per Sample',
-      xaxis: {
+    var bubbleLayout= {
+      title : 'Bacteria Cultures Per Sample',
+      xaxis : {
         title : 'OTU ID'
       },
       yaxis: {
         title: "Value Counts"
       }
-      }
-
+     
+    };
+    
     // Deliverable 2: 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot('bubble', bubbleData, bubbleLayout);
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
@@ -147,7 +148,7 @@ function buildCharts(sample) {
         type: "indicator",
         mode: "gauge+number",
         gauge: {
-          bar: { color: "black" },
+          bar: { color: "red" },
           axis: { 
             nticks : 10,
             range: [null, 10] },
@@ -161,7 +162,7 @@ function buildCharts(sample) {
     }}]
     
     // Deliverable 3: 5. Create the layout for the gauge chart.
-    var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
+    var layout = { width: 500, height: 400, margin: { t: 0, b: 0 } };
     // Deliverable 3: 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot('gauge', data, layout);
   

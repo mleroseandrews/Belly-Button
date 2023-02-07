@@ -1,0 +1,11 @@
+body {
+
+    color: #34282C;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  .jumbotron {
+    background-image: url("../images/download.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+    color: white;
+  }
